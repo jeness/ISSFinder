@@ -19,16 +19,13 @@ map.on('load', function () {
                 var data = json,
                     issLastSeen = data.features[0].geometry.coordinates,
                     details = data.features[0].properties,
-                    resultingDOM = "",
-                    resultingText = "";
+                    resultingDOM = "";
 
                 for (var prop in details) {
                     resultingDOM += "<span class='title'>" + prop.toUpperCase() + "</span>" + " " + details[prop] + "</br>";
-                    resultingText += `${prop.toUpperCase()}  ${details[prop]}`;
                 }
 
                 document.getElementById('details').innerHTML = resultingDOM;
-                document.getElementById('detailsEntity').setAttribute("text", "value: " + resultingText);
                 document.getElementById('locate').setAttribute("data-coordinate", JSON.stringify(issLastSeen));
 
                 map.getSource('iss').setData(data);
@@ -39,7 +36,7 @@ map.on('load', function () {
 
     }, 2000);
 
-    map.addSource('iss', { type: 'geojson', data: url });
+    map.addSource('iss', {type: 'geojson', data: url});
     map.addLayer({
         "id": "iss",
         "type": "symbol",
@@ -60,10 +57,11 @@ map.on('load', function () {
 
 });
 
-map.on('load', function () {
-    var canvas = document.querySelector("#map canvas"),
-        image = canvas.toDataURL("image/png"),
-        sphere = document.getElementById("sphere");
 
-    sphere.setAttribute("src", image);
-});
+// map.on('load', function () {
+//     var canvas = document.querySelector("#map canvas"),
+//         image = canvas.toDataURL("image/png"),
+//         sphere = document.getElementById("sphere");
+
+//     sphere.setAttribute("src", image);
+// });
