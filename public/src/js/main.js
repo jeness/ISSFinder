@@ -1,7 +1,7 @@
 mapboxgl.accessToken = 'pk.eyJ1Ijoic3ByaW5nd29sZiIsImEiOiJjanR4bm0zcWwwdjlvM3pwZmJ3NmFnZzdwIn0.FVOItv6pFEBdiJpayF1P9w';
 var map = new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/dark-v9',
+    style: 'mapbox://styles/mapbox/basic-v9',
     center: [0, 0],
     maxBounds: [[-180, -85], [180, 85]],
     zoom: 1
@@ -44,6 +44,9 @@ map.on('load', function () {
         "layout": {
             "icon-image": "rocket-15"
         }
+        // "paint": {
+        //     "icon-color": "#ff0000"
+        // }
     });
 
     map.addControl(new mapboxgl.FullscreenControl());
